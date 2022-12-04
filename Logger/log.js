@@ -12,7 +12,7 @@ const fetch = require("cross-fetch");
     },
     body: JSON.stringify(params)
   }).then(res => {
-    console.log(`Webhook response =>`,res.status, res.statusText,`\nMsg => ${msg}`);
+  if(res.status != 204)  console.log(`Webhook response =>`,res.status, res.statusText,`\nMsg => ${msg}`);
   })
 }
 module.exports = { sendDiscordLog };
