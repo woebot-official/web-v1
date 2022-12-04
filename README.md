@@ -8,7 +8,7 @@ woebot dashboard is the first web dashboard build for Woebot with nodejs
 
 # Installation ([Replit](https://replit.com))
 
-1. Fork the Source Code from [Replit](https://woebot-web.somaliyo.repl.co)
+1. Fork the Source Code from [Replit](https://replit.com/@Somaliyo/woebot-web)
 2. Install dependencies using ` npm install i `
 3. Add new secret as `PORT` and give the app port. eg: `3000, 8080` 
 4. Start App using ` npm start `
