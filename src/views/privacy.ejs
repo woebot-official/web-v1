@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('includes/header') %>
+
+<body class="">  
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="/?n=true" class="simple-text logo-mini">
+            <img class="border rounded-circle img-profile" src="<%=avatar%>">
+          </a>
+          <a href="/?n=true" class="simple-text logo-normal">
+            <%=botname%>
+          </a>
+        </div>
+        <ul class="nav">
+          <li>
+            <a href="/?n=true">
+              <i class="tim-icons icon-world"></i>
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="/stats">
+              <i class="tim-icons icon-chart-bar-32"></i>
+              <p>Stats</p>
+            </a>
+          </li>
+          <li>
+            <a href="/commands">
+              <i class="tim-icons icon-bullet-list-67"></i>
+              <p>Commands</p>
+            </a>
+          </li>
+          <li>
+            <a href="/terms">
+              <i class="tim-icons icon-alert-circle-exc"></i>
+              <p>Terms and Conditions</p>
+            </a>
+          </li>
+          <li class="active ">
+            <a href="/privacy">
+              <i class="tim-icons icon-paper"></i>
+              <p>Privacy Policy</p>
+            </a>
+          </li>
+          <li>
+            <a href="/docs">
+              <i class="tim-icons icon-book-bookmark"></i>
+              <p>Documentation</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <%- include('includes/navbar') %>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h2 class="card-title">Privacy Policy</h2>
+                    <p><strong>
+                      •  The use of this application ("Woebot") in a server requires the collection of some specific user data ("Data"). The Data collected includes, but is not limited to Discord user ID values. Use of the Bot is considered an agreement to the terms of this Policy.
+                    </strong></p>
+                    <h3>Access to Data</h3>
+                    <p>
+                      <strong>
+                        •  Access to Data is only permitted to Bot's developers, and only in the scope required for the development, testing, and implementation of features for Bot. Data is not sold, provided to, or shared with any third party, except where required by law or a Terms of Service agreement.
+                      </strong>
+                    </p>
+                    <h3>Storage of Data</h3>
+                    <p><strong>
+                      • Data is stored in a MongoDB database. The database is secured to prevent external access, In the event of an unauthorised Data access, users will be notified through the Discord client application.
+                    </strong></p>
+                    <h3>User Rights</h3>
+                    <p><strong>
+                      • At any time, you have the right to request to view the Data pertaining to your Discord account. You may submit a request through the Discord Server. You have the right to request the removal of relevant Data.
+                    </strong></p>
+                    <h3>Underage Users</h3>
+                    <p><strong>
+                      • The use of the Bot is not permitted for minors under the age of 13, or under the age of legal consent for their country. This is in compliance with the Discord Terms of Service. No information will be knowingly stored from an underage user. If it is found out that a user is underage we will take all necessary action to delete the stored data. 
+                    </strong></p>
+                    <p><strong>If you have any questions or are concerned about what data might be being stored from your account.For more join Bot support server</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include('includes/footer') %>
+    </div>
+  </div>
+  <%- include('includes/popup') %>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+        $navbar = $('.navbar');
+        $main_panel = $('.main-panel');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+        sidebar_mini_active = true;
+        white_color = false;
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+
+
+        $('.fixed-plugin a').click(function(event) {
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .background-color span').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data', new_color);
+          }
+
+          if ($main_panel.length != 0) {
+            $main_panel.attr('data', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data', new_color);
+          }
+        });
+
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+          var $btn = $(this);
+
+          if (sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            sidebar_mini_active = false;
+            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+          } else {
+            $('body').addClass('sidebar-mini');
+            sidebar_mini_active = true;
+            blackDashboard.showSidebarMessage('Sidebar mini activated...');
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+        });
+
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+          var $btn = $(this);
+
+          if (white_color == true) {
+
+            $('body').addClass('change-background');
+            setTimeout(function() {
+              $('body').removeClass('change-background');
+              $('body').removeClass('white-content');
+            }, 900);
+            white_color = false;
+          } else {
+
+            $('body').addClass('change-background');
+            setTimeout(function() {
+              $('body').removeClass('change-background');
+              $('body').addClass('white-content');
+            }, 900);
+
+            white_color = true;
+          }
+
+
+        });
+
+        $('.light-badge').click(function() {
+          $('body').addClass('white-content');
+        });
+
+        $('.dark-badge').click(function() {
+          $('body').removeClass('white-content');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

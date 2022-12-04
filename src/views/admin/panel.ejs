@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%=botname%> Admin Panel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="/js/core/jquery.min.js"></script>
+    <script src="/js/plugins/bootstrap-notify.js"></script>
+    <script src="/js/plugins/notify.js"></script>
+	<script type="text/javascript">
+		$(document).ready(() => {
+
+			$("#rjryt").submit((event) => {
+				event.preventDefault();
+
+				$.ajax({
+					type: 'POST',
+					url: '/~/admin/panel',
+					data: $('#rjryt').serialize(),
+					dataType: "json",
+					success: (response) => {
+						$('#rjryt')[0].reset();
+						if(response.Success) {
+              woebot.showNotification(2,'bottom','center', response.Success);
+              setTimeout(() => {
+                window.location.replace("/~/admin/panel/?n=true");
+						  }, 3000);
+            }else woebot.showNotification(3,'bottom','center', response.Error);
+					},
+					error: () => {
+					}
+				})
+			});
+		});
+	</script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/~/admin/panel/?n=true">Admin Panel</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="?" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/">Home</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/stats">Stats</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/commands">Commands</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/~/admin/logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li><a href="/~/admin">Admin</a></li>
+        <li class="active">Panel</li>
+      </ol>
+      <%if(!query.n){%>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Hyy <%=name%>!</strong> Welcome to the admin panel.
+      </div>
+      <%}%>
+      <h1><%=botname%> Admin Panel</h1>
+      <h3>Dashboard Config</h3>
+      
+      <form method="post" id="rjryt">
+
+        <div class="form-group">
+          <label for="apiurl">Enter Api Url</label>
+          <input type="url" class="form-control" id="apiurl" aria-describedby="apiurl" placeholder="Current Api: <%=api%>" name="apiurl" aria-describedby="apiurl1">
+        </div>
+        <div class="form-check">
+          <%if(maintance == true){%>
+          <input type="checkbox" class="form-check-input" id="maintance" value="maintance" name="maintance" checked>
+          <label for="maintance">Disable maintance</label>
+          <%}else{%>
+            <input type="checkbox" class="form-check-input" id="maintance" value="maintance" name="maintance">
+            <label for="maintance">Enable maintance</label>
+          <%}%>
+        </div>
+        <input type="submit" value="Update" class="btn btn-success">
+      </form>
+  </body>
+</html>

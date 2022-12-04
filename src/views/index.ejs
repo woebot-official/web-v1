@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('includes/header') %>
+<%if(!query.n){%>
+  <body class="" onload="setTimeout(hidepreload, 500)">
+    <section class="preloader" id="preloader">
+        <div class="spinner">
+             <span class="spinner-rotate"></span>
+        </div>
+   </section>
+    <%}else{%>
+      <body class="">  
+    <%}%>
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="/?n=true" class="simple-text logo-mini">
+            <img class="border rounded-circle img-profile" src="<%=avatar%>">
+          </a>
+          <a href="/?n=true" class="simple-text logo-normal">
+            <%=botname%>
+          </a>
+        </div>
+        <ul class="nav">
+          <li class="active ">
+            <a href="/?n=true">
+              <i class="tim-icons icon-world"></i>
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="/stats">
+              <i class="tim-icons icon-chart-bar-32"></i>
+              <p>Stats</p>
+            </a>
+          </li>
+          <li>
+            <a href="/commands">
+              <i class="tim-icons icon-bullet-list-67"></i>
+              <p>Commands</p>
+            </a>
+          </li>
+          <li>
+            <a href="/terms">
+              <i class="tim-icons icon-alert-circle-exc"></i>
+              <p>Terms and Conditions</p>
+            </a>
+          </li>
+          <li>
+            <a href="/privacy">
+              <i class="tim-icons icon-paper"></i>
+              <p>Privacy Policy</p>
+            </a>
+          </li>
+          <li>
+            <a href="/docs">
+              <i class="tim-icons icon-book-bookmark"></i>
+              <p>Documentation</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <%- include('includes/navbar') %>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header text-center">
+                <h2 class="card-title"><%=botname%></h2>
+                <p class="card-text"><%=botname%> is a featured discord bot with many features. Invite <%=botname%> and make your server more intractive.</p>
+                <a href="/invite" class="btn btn-primary">Invite Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header text-center">
+                <h2 class="card-title"><%=botname%> features</h2> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title">Ticket System</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Command: /ticket</h6>
+                <p class="card-text"><%=botname%> have advanced ticket system with customizible Embed and more user frendly.</p>
+                <a href="/commands" class="card-link">View Commands</a>
+                <a href="/discord" class="card-link">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title">Invite Tracker</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Command: /invitetracker</h6>
+                <p class="card-text">Invite tracker system will track inviter of user when they joined to a server.</p>
+                <a href="/commands" class="card-link">View Commands</a>
+                <a href="/discord" class="card-link">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title">Logging</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Command: /logging</h6>
+                <p class="card-text">Logging system will automatically log the events like User join/left, Channel create/delete, etc.</p>
+                <a href="/commands" class="card-link">View Commands</a>
+                <a href="/discord" class="card-link">Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title">Verification</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Command: /verification</h6>
+                <p class="card-text"><%=botname%> verification system can verify users who joined a server with a intractive panel.</p>
+                <a href="/commands" class="card-link">View Commands</a>
+                <a href="/discord" class="card-link">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title">Settings</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Command: /settings</h6>
+                <p class="card-text"><%=botname%> Settings will allow server moderators to enable/disable my features.</p>
+                <a href="/commands" class="card-link">View Commands</a>
+                <a href="/discord" class="card-link">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card" style="width: 20rem;">
+              <div class="card-body">
+                <h4 class="card-title">User frendly</h4>
+                <h6 class="card-subtitle mb-2 text-muted">More Intractive</h6>
+                <p class="card-text"><%=botname%> has more user frendly with slash commands and context menu commands.</p>
+                <a href="/invite" class="card-link">Invite</a>
+                <a href="/dc" class="card-link">Support Server</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header text-center">
+                <h2 class="card-title"><%=botname%> Staff Teams</h2> 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+              <div class="card border-0 shadow-none">
+                  <div class="card-body d-flex align-items-center p-0"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="110" height="110" src="https://rjryt.tech/images/icon/apple-touch-icon.png">
+                      <div>
+                          <h5 class="fw-bold text-primary mb-0">RJRYT</h5>
+                          <p class="text-muted mb-1">Owner, Developer</p>
+                          <ul class="list-inline fs-6 text-muted w-100 mb-0">
+                              <li class="list-inline-item text-center">
+                                  <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                                          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                                      </svg></div>
+                              </li>
+                              <li class="list-inline-item text-center">
+                                  <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                                          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                                      </svg></div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="card border-0 shadow-none">
+                  <div class="card-body d-flex align-items-center p-0"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="110" height="110" src="https://rjryt.tech/images/profile/profile-2.jpg">
+                      <div>
+                          <h5 class="fw-bold text-primary mb-0"><strong>BO$$</strong></h5>
+                          <p class="text-muted mb-1">Developer</p>
+                          <ul class="list-inline fs-6 text-muted w-100 mb-0">
+                              <li class="list-inline-item text-center">
+                                  <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                                          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                                      </svg></div>
+                              </li>
+                              <li class="list-inline-item text-center">
+                                  <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                                          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                                      </svg></div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-12">
+              <div class="card border-0 shadow-none">
+                  <div class="card-body d-flex align-items-center p-0"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="110" height="110" src="https://media.discordapp.net/attachments/963696006640324638/1040251485117755392/lOGO_1.jpg">
+                      <div>
+                          <h5 class="fw-bold text-primary mb-0"><strong>A GFX</strong></h5>
+                          <p class="text-muted mb-1">Graphics Designer</p>
+                          <ul class="list-inline fs-6 text-muted w-100 mb-0">
+                              <li class="list-inline-item text-center">
+                                  <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-facebook">
+                                          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+                                      </svg></div>
+                              </li>
+                              <li class="list-inline-item text-center">
+                                  <div class="d-flex flex-column align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-instagram">
+                                          <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+                                      </svg></div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      </div>
+      <%- include('includes/footer') %>
+    </div>
+  </div>
+  <%- include('includes/popup') %>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+        $navbar = $('.navbar');
+        $main_panel = $('.main-panel');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+        sidebar_mini_active = true;
+        white_color = false;
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+
+
+        $('.fixed-plugin a').click(function(event) {
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .background-color span').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data', new_color);
+          }
+
+          if ($main_panel.length != 0) {
+            $main_panel.attr('data', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data', new_color);
+          }
+        });
+
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+          var $btn = $(this);
+
+          if (sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            sidebar_mini_active = false;
+            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+          } else {
+            $('body').addClass('sidebar-mini');
+            sidebar_mini_active = true;
+            blackDashboard.showSidebarMessage('Sidebar mini activated...');
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+        });
+
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+          var $btn = $(this);
+
+          if (white_color == true) {
+
+            $('body').addClass('change-background');
+            setTimeout(function() {
+              $('body').removeClass('change-background');
+              $('body').removeClass('white-content');
+            }, 900);
+            white_color = false;
+          } else {
+
+            $('body').addClass('change-background');
+            setTimeout(function() {
+              $('body').removeClass('change-background');
+              $('body').addClass('white-content');
+            }, 900);
+
+            white_color = true;
+          }
+
+
+        });
+
+        $('.light-badge').click(function() {
+          $('body').addClass('white-content');
+        });
+
+        $('.dark-badge').click(function() {
+          $('body').removeClass('white-content');
+        });
+      });
+    });
+  </script>
+  <script>
+    function hidepreload() {
+ const x = document.getElementById("preloader");
+ let op = 100;
+ const id = setInterval(frame, 10);
+ function frame() {
+  if(op == 0) {
+    clearInterval(id);
+    x.remove();
+    woebot.showNotification(2,'top','center', 'Welcome to the Woebot official Dashboard.<br>');
+  } 
+  else {
+     op --;
+     x.style.opacity = op + '%';
+   }
+ }
+}
+  </script> 
+</body>
+
+</html>

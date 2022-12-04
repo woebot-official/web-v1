@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%=botname%> Admin DashBoard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <script src="/js/core/jquery.min.js"></script>
+    <script src="/js/plugins/bootstrap-notify.js"></script>
+    <script src="/js/plugins/notify.js"></script>
+	<script type="text/javascript">
+		$(document).ready(() => {
+
+			$("#rjryt").submit((event) => {
+				event.preventDefault();
+
+				$.ajax({
+					type: 'POST',
+					url: '/~/admin/login',
+					data: $('#rjryt').serialize(),
+					dataType: "json",
+					success: (response) => {
+						$('#rjryt')[0].reset();
+						if(response.Success) woebot.showNotification(2,'bottom','center', response.Success);
+						else woebot.showNotification(3,'bottom','center', response.Error);
+						//ADD THIS CODE
+						setTimeout(() => {
+							if (response.Success == "You loggined sucessfully") {
+								document.getElementById("aa").click();
+							};
+						}, 3000);
+						
+					},
+					error: () => {
+					}
+				})
+			});
+		});
+	</script>
+  </head>
+  <body>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/~/admin/login/">Admin Panel</a>
+		  </div>
+	  
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li><a href="/">Home</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+			  <li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+				  <li><a href="/">Home</a></li>
+				  <li role="separator" class="divider"></li>
+				  <li><a href="/stats">Stats</a></li>
+				  <li role="separator" class="divider"></li>
+				  <li><a href="/commands">Commands</a></li>
+				</ul>
+			  </li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	  </nav>
+    <div class="container">
+		<ol class="breadcrumb">
+			<li><a href="/">Home</a></li>
+			<li><a href="/~/admin">Admin</a></li>
+			<li class="active">Login</li>
+		  </ol>
+      <h1><%=botname%> Admin DashBoard</h1>
+      
+      <form method="post" id="rjryt">
+
+        <div class="form-group">
+          <label for="firstName">UserName</label>
+          <input type="text" class="form-control" id="Name" aria-describedby="User" placeholder="Enter UserName" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">PassWord</label>
+          <input type="password" class="form-control" id="Pass" aria-describedby="Pass" placeholder="Enter  PassWord" name="pass" required>
+        </div>
+        <input type="submit" value="Login" class="btn btn-success">
+        <a href="/~/admin/panel" id="aa"></a>
+      </form>
+  </body>
+</html>

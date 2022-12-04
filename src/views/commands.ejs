@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('includes/header') %>
+
+<body class="">  
+  <%if(api == false){%>
+    <script>
+      woebot.showNotification(4,'bottom','center', "Commands fetch was failed due to Api error");
+    </script>
+  <%}%>
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="/?n=true" class="simple-text logo-mini">
+            <img class="border rounded-circle img-profile" src="<%=avatar%>">
+          </a>
+          <a href="/?n=true" class="simple-text logo-normal">
+            <%=botname%>
+          </a>
+        </div>
+        <ul class="nav">
+          <li>
+            <a href="/?n=true">
+              <i class="tim-icons icon-world"></i>
+              <p>Home</p>
+            </a>
+          </li>
+          <li>
+            <a href="/stats">
+              <i class="tim-icons icon-chart-bar-32"></i>
+              <p>Stats</p>
+            </a>
+          </li>
+          <li class="active ">
+            <a href="/commands">
+              <i class="tim-icons icon-bullet-list-67"></i>
+              <p>Commands</p>
+            </a>
+          </li>
+          <li>
+            <a href="/terms">
+              <i class="tim-icons icon-alert-circle-exc"></i>
+              <p>Terms and Conditions</p>
+            </a>
+          </li>
+          <li>
+            <a href="/privacy">
+              <i class="tim-icons icon-paper"></i>
+              <p>Privacy Policy</p>
+            </a>
+          </li>
+          <li>
+            <a href="/docs">
+              <i class="tim-icons icon-book-bookmark"></i>
+              <p>Documentation</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <%- include('includes/navbar') %>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h5 class="card-category">Total Message Commands: <%=stats.count.commands%></h5>
+                    <h2 class="card-title">Commands</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row table-responsive">
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Discription</th>
+                    <th>Aliases</th>
+                    <th>CoolDown</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% command.forEach( (cmd) => {%>
+                <% if(!cmd.ownerOnly){%>
+                <tr>
+                    <td><strong> <%=stats.bot.prefix%><%=cmd.name%></strong></td>
+                    <td><strong><%=cmd.category%></strong></td>
+                    <td><strong><%=cmd.description%></strong></td>
+                    <td><strong><%=cmd.aliases%></strong></td>
+                    <td><strong><%=cmd.cooldown%>s</strong></td>
+                </tr>
+                <%}%>
+                <%})%>
+            </tbody>
+          </table>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-chart">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h5 class="card-category">Total Slash Commands: <%=stats.count.slashcommands%></h5>
+                    <h2 class="card-title">Slash Commands</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row table-responsive">
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Discription</th>
+                    <th>CoolDown</th>
+                </tr>
+            </thead>
+            <tbody>
+              <% slashcommand.forEach( (cmd) => {%>
+                <% if(!cmd.type){%>
+            <tr>
+                <td> <strong>/<%=cmd.name%></strong></td>
+                <td><strong><%=cmd.category%></strong></td>
+                <td><strong><%=cmd.description%></strong></td>
+                <td><strong><%=cmd.cooldown%>s</strong></td>
+            </tr>
+            <%}%>
+            <%})%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <%- include('includes/footer') %>
+    </div>
+  </div>
+  <%- include('includes/popup') %>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+        $navbar = $('.navbar');
+        $main_panel = $('.main-panel');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+        sidebar_mini_active = true;
+        white_color = false;
+
+        window_width = $(window).width();
+
+        fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
+
+
+
+        $('.fixed-plugin a').click(function(event) {
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .background-color span').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data', new_color);
+          }
+
+          if ($main_panel.length != 0) {
+            $main_panel.attr('data', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data', new_color);
+          }
+        });
+
+        $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+          var $btn = $(this);
+
+          if (sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            sidebar_mini_active = false;
+            blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+          } else {
+            $('body').addClass('sidebar-mini');
+            sidebar_mini_active = true;
+            blackDashboard.showSidebarMessage('Sidebar mini activated...');
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+        });
+
+        $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+          var $btn = $(this);
+
+          if (white_color == true) {
+
+            $('body').addClass('change-background');
+            setTimeout(function() {
+              $('body').removeClass('change-background');
+              $('body').removeClass('white-content');
+            }, 900);
+            white_color = false;
+          } else {
+
+            $('body').addClass('change-background');
+            setTimeout(function() {
+              $('body').removeClass('change-background');
+              $('body').addClass('white-content');
+            }, 900);
+
+            white_color = true;
+          }
+
+
+        });
+
+        $('.light-badge').click(function() {
+          $('body').addClass('white-content');
+        });
+
+        $('.dark-badge').click(function() {
+          $('body').removeClass('white-content');
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
