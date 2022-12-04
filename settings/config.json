@@ -1,0 +1,21 @@
+{
+  "Web": {
+    "Secret": "ndhfgkebnfvj",
+    "pass": "rkdev@123",
+    "apiurl": "http://host.codroid.host:2066"
+  },
+  "Bot": {
+    "Invite":"https://discord.com/api/oauth2/authorize?client_id=882451949935534121&permissions=81074120776&scope=bot%20applications.commands",
+    "Support":"https://discord.gg/NzQMqkEjVk",
+    "Vote": "https://discordbotlist.com/bots/woebot-1480",
+    "Website": "https://rjryt.tech/woebot",
+    "Terms": "https://rjryt.tech/woebot/termsofservice",
+    "Privacy": "https://rjryt.tech/woebot/privacy",
+    "Sponser": {
+      "Name": "Codroid",
+      "Link": "https://codroid.ml"
+    }
+  }
+}
+  
+  
