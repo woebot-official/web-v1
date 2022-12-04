@@ -1,0 +1,24 @@
+[
+    {
+        "name":"help",
+        "usage":"",
+        "description":"Show all slash commands",
+        "category":"info",
+        "cooldown":1,
+        "botPerms":"",
+        "userPerms":"",
+        "owner":false,
+        "toggleOff":false
+    },
+    {
+        "name":"ping",
+        "usage":"",
+        "description":"show bot ping",
+        "category":"info",
+        "cooldown":5,
+        "botPerms":"",
+        "userPerms":"",
+        "owner":false,
+        "toggleOff":false
+    }
+]

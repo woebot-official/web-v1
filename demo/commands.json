@@ -1,0 +1,26 @@
+[
+    {
+        "name":"help",
+        "aliases":["hlp","h"],
+        "usage":"",
+        "description":"Show all commands",
+        "category":"info",
+        "cooldown":1,
+        "userPerms":"",
+        "clientPerms":"",
+        "ownerOnly":false,
+        "toggleOff":false
+    },
+    {
+        "name":"ping",
+        "aliases":[],
+        "usage":"",
+        "description":"Show bot ping",
+        "category":"info",
+        "cooldown":1,
+        "userPerms":"",
+        "clientPerms":"",
+        "ownerOnly":false,
+        "toggleOff":false
+    }
+]

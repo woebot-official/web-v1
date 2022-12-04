@@ -1,0 +1,22 @@
+{
+  "botname": "Woebot",
+  "avatar": "/icon/apple-touch-icon.png",
+  "sponsor": "Fetching",
+  "count":{
+    "events": 0,
+    "commands": 0,
+    "slashcommands": 0
+  },
+  "version":{
+    "node": "Fetching",
+    "discord": "Fetching"
+  },
+  "platform": "Fetching",
+  "memory": "Fetching",
+  "bot":{
+    "users": 0,
+    "guilds": 0,
+    "prefix": "!!",
+    "channels": 0
+  }
+}
