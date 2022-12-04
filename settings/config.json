@@ -1,7 +1,7 @@
 {
   "Web": {
-    "Secret": "ndhfgkebnfvj",
-    "pass": "rkdev@123",
+    "Secret": "addrandomstring",
+    "pass": "adminpass",
     "apiurl": "http://host.codroid.host:2066"
   },
   "Bot": {
